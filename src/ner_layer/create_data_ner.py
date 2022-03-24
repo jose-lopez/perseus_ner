@@ -218,19 +218,26 @@ if __name__ == '__main__':
 
     print(
         "Reporting the NER examples files for manual evaluation (examples_ner_pos.json, examples_ner_empthy.json) ....")
-    train_docs = report_entities_json(with_entities, sys.argv, True)
-    eval_docs = report_entities_json(without_entities, sys.argv, False)
-    print(f'Number of examples for training: {len(train_docs)}')
-    print(f'Number of examples for evaluation: {len(eval_docs)}')
+    pos_docs = report_entities_json(with_entities, sys.argv, True)
+    empthy_docs = report_entities_json(without_entities, sys.argv, False)
+    print(
+        f'Reported NER examples with entities: {len(pos_docs)}:{len(with_entities)}')
+    print(
+        f'Reported empthy NER examples for evaluation: {len(empthy_docs)}:{len(without_entities)}')
     print(".. done" + "\n")
 
     print("Creating the files for the NER's layer training (train.spacy) and evaluation (eval.spacy)")
     # Create and save a collection of training docs
-    train_docbin = DocBin(docs=train_docs)
+    all_ner_examples = pos_docs + empthy_docs
+    random.shuffle(all_ner_examples)
+    random.shuffle(all_ner_examples)
+    random.shuffle(all_ner_examples)
+
+    train_docbin = DocBin(docs=all_ner_examples[:len(pos_docs)])
     train_docbin.to_disk("./data/train.spacy")
 
     # Create and save a collection of evaluation docs
-    eval_docbin = DocBin(docs=eval_docs)
+    eval_docbin = DocBin(docs=all_ner_examples[len(pos_docs):])
     eval_docbin.to_disk("./data/eval.spacy")
 
     print(".. done" + "\n")
