@@ -5,12 +5,15 @@ Created on 17 mar. 2022
 
 @author: jose-lopez
 '''
-
 import json
 import math
 import random
 import sys
+import time
 
+from about_time import about_time
+from alive_progress import alive_bar
+from alive_progress import alive_it
 from spacy.matcher import Matcher
 from spacy.tokens import Span, DocBin
 import spacy
@@ -68,7 +71,7 @@ def report_entities_json(documents, arguments, with_entities):
 
             if required_sentences >= len(documents):
                 print(
-                    f'The required sentences with entities required ({len(required_sentences)}) is greater than the availables ({len(with_entities)}). '
+                    f'The required sentences with entities required ({required_sentences}) is greater than the availables ({len(documents)}). '
                     f'Reporting anyways...')
 
         else:
@@ -76,7 +79,7 @@ def report_entities_json(documents, arguments, with_entities):
 
             if required_sentences >= len(documents):
                 print(
-                    f'The required sentences without entities required ({len(required_sentences)}) is greater than the availables ({len(without_entities)}). '
+                    f'The required sentences without entities required ({required_sentences}) is greater than the availables ({len(documents)}). '
                     f'Reporting anyways...')
 
         num_of_sentences = 1
@@ -181,63 +184,81 @@ if __name__ == '__main__':
     NAMES_PATTERNS_PATH = "data/names_patterns.jsonl"
     GROUP_PATTERN_PATH = "data/group_pattern.jsonl"
 
+    print("\n" + "\n")
     print("Loading the corpus...")
     with open(CORPUS_PATH, 'r', encoding="utf8") as f:
-        SENTENCES = [line.strip() for line in f.readlines()]
+        SENTENCES = [line.strip() for line in alive_it(f.readlines())]
     print(".. done" + "\n")
 
-    print("Loading the model...")
-    nlp = spacy.load("grc_ud_perseus_lge")
-    # nlp = spacy.load("en_core_web_md")
-    print(".. done" + "\n")
+    with about_time() as t_total:
+        with about_time() as t1:
+            print("Loading the model...")
+            nlp = spacy.load("grc_ud_perseus_lge")
+            # nlp = spacy.load("en_core_web_md")
+            print(".. done" + "\n")
 
-    # print(nlp.pipe_names)
-    # print(nlp.pipeline)
+            # print(nlp.pipe_names)
+            # print(nlp.pipeline)
+        with about_time() as t2:
+            print("Loading the entities' patterns...")
+            matcher = Matcher(nlp.vocab)
+            names_patterns = load_jsonl(NAMES_PATTERNS_PATH)
+            group_patterns = load_jsonl(GROUP_PATTERN_PATH)
+            setting_patterns(names_patterns, matcher)
+            setting_patterns(group_patterns, matcher)
+            print(".. done" + "\n")
 
-    print("Loading the entities' patterns...")
-    matcher = Matcher(nlp.vocab)
-    names_patterns = load_jsonl(NAMES_PATTERNS_PATH)
-    group_patterns = load_jsonl(GROUP_PATTERN_PATH)
-    setting_patterns(names_patterns, matcher)
-    setting_patterns(group_patterns, matcher)
-    print(".. done" + "\n")
+        with about_time() as t3:
+            print("Creating the tagged NER examples from the corpus ")
+            with_entities, without_entities = tagging_ner_docs(
+                SENTENCES, matcher)
+            DOCS_SIZE = len(with_entities) + len(without_entities)
+            print(f'Corpus size: {DOCS_SIZE}')
+            print(
+                f'Numer of docs with entities: {len(with_entities)}:{DOCS_SIZE}')
+            print(
+                f'Numer of docs without entities: {len(without_entities)}:{DOCS_SIZE}')
+            print(".. done" + "\n")
 
-    print("Creating the tagged NER examples from the corpus ")
-    with_entities, without_entities = tagging_ner_docs(SENTENCES, matcher)
-    DOCS_SIZE = len(with_entities) + len(without_entities)
-    print(f'Corpus size: {DOCS_SIZE}')
-    print(f'Numer of docs with entities: {len(with_entities)}:{DOCS_SIZE}')
-    print(
-        f'Numer of docs without entities: {len(without_entities)}:{DOCS_SIZE}')
-    print(".. done" + "\n")
+        with about_time() as t4:
+            print("Ramdomizing the NER examples ....")
+            random.shuffle(with_entities)
+            random.shuffle(without_entities)
+            print(".. done" + "\n")
 
-    print("Ramdomizing the NER examples ....")
-    random.shuffle(with_entities)
-    random.shuffle(without_entities)
-    print(".. done" + "\n")
+        with about_time() as t5:
+            print(
+                "Reporting the NER examples files for manual evaluation (examples_ner_pos.json, examples_ner_empthy.json) ....")
+            pos_docs = report_entities_json(with_entities, sys.argv, True)
+            empthy_docs = report_entities_json(
+                without_entities, sys.argv, False)
+            print(
+                f'Reported NER examples with entities: {len(pos_docs)}:{len(with_entities)}')
+            print(
+                f'Reported empthy NER examples for evaluation: {len(empthy_docs)}:{len(without_entities)}')
+            print(".. done" + "\n")
 
-    print(
-        "Reporting the NER examples files for manual evaluation (examples_ner_pos.json, examples_ner_empthy.json) ....")
-    pos_docs = report_entities_json(with_entities, sys.argv, True)
-    empthy_docs = report_entities_json(without_entities, sys.argv, False)
-    print(
-        f'Reported NER examples with entities: {len(pos_docs)}:{len(with_entities)}')
-    print(
-        f'Reported empthy NER examples for evaluation: {len(empthy_docs)}:{len(without_entities)}')
-    print(".. done" + "\n")
+        with about_time() as t6:
+            print(
+                "Creating the files for the NER's layer training (train.spacy) and evaluation (eval.spacy)")
+            # Create and save a collection of training docs
+            all_ner_examples = pos_docs + empthy_docs
+            random.shuffle(all_ner_examples)
+            random.shuffle(all_ner_examples)
+            random.shuffle(all_ner_examples)
 
-    print("Creating the files for the NER's layer training (train.spacy) and evaluation (eval.spacy)")
-    # Create and save a collection of training docs
-    all_ner_examples = pos_docs + empthy_docs
-    random.shuffle(all_ner_examples)
-    random.shuffle(all_ner_examples)
-    random.shuffle(all_ner_examples)
+            train_docbin = DocBin(docs=all_ner_examples[:len(pos_docs)])
+            train_docbin.to_disk("./data/train.spacy")
 
-    train_docbin = DocBin(docs=all_ner_examples[:len(pos_docs)])
-    train_docbin.to_disk("./data/train.spacy")
+            # Create and save a collection of evaluation docs
+            eval_docbin = DocBin(docs=all_ner_examples[len(pos_docs):])
+            eval_docbin.to_disk("./data/eval.spacy")
 
-    # Create and save a collection of evaluation docs
-    eval_docbin = DocBin(docs=all_ner_examples[len(pos_docs):])
-    eval_docbin.to_disk("./data/eval.spacy")
+            print(".. done" + "\n")
 
-    print(".. done" + "\n")
+    print(f'percentage1 = {t1.duration / t_total.duration}')
+    print(f'percentage2 = {t2.duration / t_total.duration}')
+    print(f'percentage3 = {t3.duration / t_total.duration}')
+    print(f'percentage4 = {t4.duration / t_total.duration}')
+    print(f'percentage5 = {t3.duration / t_total.duration}')
+    print(f'percentage6 = {t4.duration / t_total.duration}')
