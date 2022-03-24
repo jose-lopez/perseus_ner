@@ -155,8 +155,8 @@ def tagging_ner_docs(sentences, matcher):
         matches = matcher(doc)
         doc.ents = []
         spans = []
-        print([(doc[start:end], nlp.vocab.strings[match_id])
-               for match_id, start, end in matches])
+        """print([(doc[start:end], nlp.vocab.strings[match_id])
+               for match_id, start, end in matches])"""
         for match_id, start, end in matches:
             current_span = Span(
                 doc, start, end, label=nlp.vocab.strings[match_id])
@@ -164,7 +164,7 @@ def tagging_ner_docs(sentences, matcher):
                 spans.append(current_span)
 
         doc.ents = spans
-        print([(ent.text, ent.label_) for ent in doc.ents])
+        # print([(ent.text, ent.label_) for ent in doc.ents])
 
         if matches:
             with_entities.append(doc)
