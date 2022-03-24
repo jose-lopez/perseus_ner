@@ -1,0 +1,20 @@
+{"label":"PERSON","pattern":[{"LOWER":"georg"}]}
+{"label":"PERSON","pattern":[{"LOWER":"joseph"}]}
+{"label":"PERSON","pattern":[{"LOWER":"shairi"}]}
+{"label":"PERSON","pattern":[{"LOWER":"sahiri"}]}
+{"label":"PERSON","pattern":[{"LOWER":"shirleni"}]}
+{"label":"PERSON","pattern":[{"LOWER":"zaida"}]}
+{"label":"PERSON","pattern":[{"LOWER":"cora"}]}
+{"label":"PERSON","pattern":[{"LOWER":"olga"}]}
+{"label":"PERSON","pattern":[{"LOWER":"great"}]}
+{"label":"PERSON","pattern":[{"LOWER":"egypt"}]}
+{"label":"PERSON","pattern":[{"LOWER":"greek"}]}
+{"pattern": [{"TEXT": "Zeus"}], "label": "GOD"}
+{"pattern": [{"TEXT": "Poseidon"}], "label": "GOD"}
+{"pattern": [{"TEXT": "Horus"}], "label": "GOD"}
+{"pattern": [{"TEXT": "Odin"}], "label": "GOD"}
+{"pattern": [{"TEXT": "Thoth"}], "label": "GOD"}  
+{"pattern": [{"TEXT": "Olimpics"}], "label": "GROUP"}
+{"pattern": [{"TEXT": "Titans"}], "label": "GROUP"}
+{"pattern": [{"TEXT": "Egypt"}], "label": "PLACE"}
+{"pattern": [{"TEXT": "Greek"}], "label": "PLACE"}
