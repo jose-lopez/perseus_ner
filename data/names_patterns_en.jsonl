@@ -17,4 +17,4 @@
 {"pattern": [{"TEXT": "Olimpics"}], "label": "GROUP"}
 {"pattern": [{"TEXT": "Titans"}], "label": "GROUP"}
 {"pattern": [{"TEXT": "Egypt"}], "label": "PLACE"}
-{"pattern": [{"TEXT": "Greek"}], "label": "PLACE"}
+{"pattern": [{"TEXT": "Greece"}], "label": "PLACE"}

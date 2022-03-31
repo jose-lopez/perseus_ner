@@ -1,0 +1,12 @@
+{"pattern":[{"TEXT": {"REGEX": "Ἀβάκαιν.{1,4}$"}}], "label":"PLACE"}
+{"pattern":[{"TEXT": {"REGEX": "Ἰσθοῖ"}}], "label":"PLACE"}
+{"pattern":[{"TEXT": {"REGEX": "Κ.λ.ν.{1,2}"}}], "label":"PLACE"}
+{"pattern":[{"POS":"ADJ","IS_TITLE":true}],"label":"GROUP"}
+{"pattern":[{"POS":"PROPN","IS_TITLE":true}],"label":"PERSON"}
+{"pattern":[{"ORTH":"ἐν"},{"POS":"DET"},{"POS":"PROPN"}], "label": "WORK"}
+{"pattern":[{"ORTH":"ἐν"},{"POS":"DET"},{"POS":"ADJ","IS_TITLE":true}], "label": "WORK"}
+{"pattern": [{"TEXT": "Ζηνὸς"}], "label": "GOD"}
+{"pattern": [{"TEXT": "Κύπριν"}], "label": "GOD"}
+{"pattern": [{"TEXT": "Κύπρις"}], "label": "GOD"}
+{"pattern": [{"TEXT": "Ποσειδῶνα"}], "label": "GOD"}
+{"pattern": [{"TEXT": "Ποσειδῶνος"}], "label": "GOD"}
