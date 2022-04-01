@@ -5,6 +5,7 @@ Created on 17 mar. 2022
 
 @author: jose-lopez
 '''
+from pathlib import Path
 import copy
 import json
 import math
@@ -48,12 +49,7 @@ def setting_patterns(patterns, matcher):
             sys.exit()
 
 
-def report_entities_json(documents, arguments, with_entities):
-
-    if with_entities:
-        path = "reports/examples_ner_pos.json"
-    else:
-        path = "reports/examples_ner_empthy.json"
+def get_arguments(arguments):
 
     for argument in arguments[1:]:
         name = argument.split("=")[0]
@@ -68,68 +64,7 @@ def report_entities_json(documents, arguments, with_entities):
             print("the syntax is: --number_of_sentences=<value>")
             sys.exit()
 
-    if len(documents) > 0:
-
-        required_sentences = math.floor(sentences_number * percentage)
-
-        if with_entities:
-
-            if required_sentences >= len(documents):
-                print(
-                    f'The required sentences with entities required ({required_sentences}) is greater than the availables ({len(documents)}). '
-                    f'Reporting anyways...')
-
-        else:
-            required_sentences = sentences_number - required_sentences
-
-            if required_sentences >= len(documents):
-                print(
-                    f'The required sentences without entities required ({required_sentences}) is greater than the availables ({len(documents)}). '
-                    f'Reporting anyways...')
-
-        num_of_sentences = 1
-
-        file = open(
-            path, 'w', encoding="utf8")
-
-        file.write("[" + "\n")
-
-        docs = []
-
-        for doc in documents:
-
-            docs.append(doc)
-
-            spans = []
-
-            for ent in doc.ents:
-                spans.append([ent.start, ent.end, ent.label_])
-
-            spans_string = f'{spans}'.replace("'", '"')
-
-            example = f'["{doc.text}", {{ "entities": {spans_string} }}]'
-            # print(example)
-
-            if num_of_sentences < required_sentences and num_of_sentences < len(documents):
-                file.write("    " + example + "," + "\n")
-                num_of_sentences += 1
-            else:
-                file.write("    " + example + "\n")
-                break
-
-        file.write("]")
-
-        file.close()
-
-        return docs
-
-    else:
-        if with_entities:
-            print("There isn't any positive NER examples to print ")
-        else:
-            print("There isn't any empthy NER examples to print ")
-
-        sys.exit()
+    return sentences_number, percentage
 
 
 def token_from_span_in(spans, current_span):
@@ -181,9 +116,11 @@ def tagging_ner_docs(sentences, matcher):
     return (with_entities, without_entities)
 
 
-def report_entities(docs):
+def report_entities(docs, percentage, proportion):
 
     PATH_NER_ENTITIES = "reports/examples_ner_entities.jsonl"
+
+    docs = define_sample(docs, percentage, proportion)
 
     file = open(
         PATH_NER_ENTITIES, 'w', encoding="utf8")
@@ -205,7 +142,7 @@ def report_entities(docs):
             label = span[2].replace("'", '"')
             # print(label)
 
-            """ print(
+            """print(
                 f'{{"start":{span[0]},"end":{span[1]},"label":"{label}"}}')
             """
 
@@ -225,88 +162,145 @@ def report_entities(docs):
     file.close()
 
 
-def prodigy_report(docs):
+def from_corpus(CORPUS_PATH, sentences_number):
+
+    corpus_length = 0
+
+    files_ = [str(x) for x in Path(CORPUS_PATH).glob("**/*.txt")]
+
+    if files_:
+
+        for file_path_ in files_:
+            with open(file_path_, 'r', encoding="utf8") as f:
+                sentences = list(f.readlines())
+
+            corpus_length += len(sentences)
+
+    else:
+        print(f'Not files at {CORPUS_PATH}')
+        sys.exit()
+
+    if sentences_number < corpus_length:
+        proportion = sentences_number / corpus_length
+    else:
+        proportion = 1.0
+
+    return corpus_length, files_, proportion
+
+
+def define_sample(docs, percentage, proportion):
+
+    samples = math.ceil(
+        len(docs) * proportion)
+
+    pos_entities = math.ceil(samples * percentage)
+    neg_entities = samples - pos_entities
+
+    pos = 0
+    neg = 0
+    entities_sample = []
 
     for doc in docs:
-        for token in doc:
-            print(f'{token.text}\t{token.ent_type_}\t{token.ent_iob_}')
+
+        if doc.ents:
+            if pos < pos_entities:
+                entities_sample.append(doc)
+                pos += 1
+        elif neg < neg_entities:
+            entities_sample.append(doc)
+            neg += 1
+
+        if pos + neg == samples:
+            break
+
+    if pos < pos_entities:
+        print(
+            f'The required sentences with entities ({pos_entities}) is greater than the available ({pos}).'
+            f'Reporting anyways...')
+    elif neg < neg_entities:
+        print(
+            f'The required sentences without entities ({neg_entities}) is greater than the available ({neg})).'
+            f'Reporting anyways...')
+
+    print(f'Number of sentences with entities {pos} | {samples}')
+    print(f'Number of sentences without entities {neg} | {samples}')
+
+    return entities_sample
+
+
+def getting_ner_examples(files, matcher):
+
+    files_counter = 1
+    examples = []
+    total_with_entities = 0
+    total_without_entities = 0
+
+    for file_path in files:
+
+        with open(file_path, 'r', encoding="utf8") as fl:
+            SENTENCES = [line.strip() for line in fl.readlines()]
+
+        print(
+            f'Defining the tagged NER examples for the corpus : {files_counter} | {len(files)}')
+
+        with_entities, without_entities = tagging_ner_docs(
+            SENTENCES, matcher)
+
+        entities = with_entities + without_entities
+        examples += entities
+
+        total_with_entities += len(with_entities)
+        total_without_entities += len(without_entities)
+
+        files_counter += 1
+
+    print(
+        f'Total of sentences with entities in the corpus: {total_with_entities}')
+    print(
+        f'Total of sentences without entities in the corpus: {total_without_entities}')
+
+    random.shuffle(examples)
+    random.shuffle(examples)
+    random.shuffle(examples)
+
+    return examples
 
 
 if __name__ == '__main__':
 
-    # CORPUS_PATH = "data/text.txt"
-    CORPUS_PATH = "data/corpus_sm.txt"
+    CORPUS_PATH = "data/corpus/"
+
     PATTERNS_PATH = "data/patterns2.1.jsonl"
-    # NAMES_PATTERNS_PATH = "data/names_patterns.jsonl"
-    # GROUP_PATTERN_PATH = "data/group_pattern.jsonl"
+    # PATTERNS_PATH = "data/names_patterns_en.jsonl"
+
+    sentences_number, percentage = get_arguments(sys.argv)
+
+    print("\n" + "\n")
+    print(">>>>>>> Starting the entities tagging...........")
+    print("\n" + "\n")
 
     print("Loading the model...")
-    # nlp = spacy.load("grc_ud_perseus_lge")
     nlp = spacy.load("grc_ud_proiel_lg")
-    # nlp = spacy.load("en_core_web_md")
+    # nlp = spacy.load("en_core_web_sm")
     print(".. done" + "\n")
 
     print("Loading the entities' patterns...")
     matcher = Matcher(nlp.vocab)
     patterns = load_jsonl(PATTERNS_PATH)
-    # group_patterns = load_jsonl(GROUP_PATTERN_PATH)
     setting_patterns(patterns, matcher)
-    # setting_patterns(group_patterns, matcher)
     print(".. done" + "\n")
 
-    print("\n" + "\n")
-    print("Loading the corpus...")
-    with open(CORPUS_PATH, 'r', encoding="utf8") as f:
-        SENTENCES = [line.strip() for line in f.readlines()]
-    print(".. done" + "\n")
-
-    # print(nlp.pipe_names)
-    # print(nlp.pipeline)
-
-    print("Creating the tagged NER examples from the corpus ")
-    with_entities, without_entities = tagging_ner_docs(
-        SENTENCES, matcher)
-    DOCS_SIZE = len(with_entities) + len(without_entities)
-    print(f'Corpus size: {DOCS_SIZE}')
-    print(
-        f'Numer of docs with entities: {len(with_entities)}:{DOCS_SIZE}')
-    print(
-        f'Numer of docs without entities: {len(without_entities)}:{DOCS_SIZE}')
-    print(".. done" + "\n")
-
-    print("Ramdomizing the NER examples ....")
-    random.shuffle(with_entities)
-    random.shuffle(without_entities)
+    print("Processing the corpus for NER tagging.......")
+    # Total of sentences in the corpus and the proportion of sentences required
+    corpus_length, files, proportion = from_corpus(
+        CORPUS_PATH, sentences_number)
+    # getting the required ner examples
+    ner_examples = getting_ner_examples(files, matcher)
     print(".. done" + "\n")
 
     print(
-        "Reporting the NER examples files for manual evaluation (examples_ner_pos.json, examples_ner_empthy.json) ....")
-    pos_docs = report_entities_json(with_entities, sys.argv, True)
-    empthy_docs = report_entities_json(
-        without_entities, sys.argv, False)
-    print(
-        f'Reported NER examples with entities: {len(pos_docs)}:{len(with_entities)}')
-    print(
-        f'Reported empthy NER examples for evaluation: {len(empthy_docs)}:{len(without_entities)}')
-    print(".. done" + "\n")
+        "Reporting the required or available sentences(examples_ner_entities.jsonl)  ..... ")
+    report_entities(ner_examples, percentage, proportion)
+    print(".. done" + "\n" + "\n")
 
-    print(
-        "Creating the files for the NER's layer training (train.spacy) and evaluation (eval.spacy)")
-    # Create and save a collection of training docs
-    all_ner_examples = pos_docs + empthy_docs
-    random.shuffle(all_ner_examples)
-    random.shuffle(all_ner_examples)
-    random.shuffle(all_ner_examples)
-
-    train_docbin = DocBin(docs=all_ner_examples[:len(pos_docs)])
-    train_docbin.to_disk("./data/train.spacy")
-
-    # Create and save a collection of evaluation docs
-    eval_docbin = DocBin(docs=all_ner_examples[len(pos_docs):])
-    eval_docbin.to_disk("./data/eval.spacy")
-
-    print(
-        "Reporting the total of available NER entities (examples_ner_entities.jsonl")
-    report_entities(all_ner_examples)
-
-    print(".. done" + "\n")
+    print(">>>>>>> Entities tagging finished...........")
