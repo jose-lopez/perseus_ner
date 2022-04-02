@@ -259,13 +259,16 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, mat
 
         global_proportion = sentences_number / corpus_length
 
-        sentences_to_tag = 20 * math.ceil(len(SENTENCES) * global_proportion)
+        sentences_to_tag = 10 * math.ceil(len(SENTENCES) * global_proportion)
+
+        if sentences_to_tag > 1000:
+            SENTENCES = SENTENCES[:sentences_to_tag]
 
         print(
             f'Defining the tagged NER examples for the corpus file -> {file_name}: {files_counter} | {len(files)}')
 
         with_entities, without_entities = tagging_ner_docs(
-            SENTENCES[:sentences_to_tag], matcher)
+            SENTENCES, matcher)
 
         entities = with_entities + without_entities
         random.shuffle(entities)
