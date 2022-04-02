@@ -325,7 +325,7 @@ if __name__ == '__main__':
     print(".. done" + "\n")
 
     print(
-        "Reporting the required or available sentences(examples_ner_entities.jsonl)  ..... ")
+        "Reporting the required or available tagged sentences (examples_ner_entities.jsonl)..... ")
     report_entities(ner_examples, percentage,
                     sentences_number, corpus_length, True)
     print(".. done" + "\n" + "\n")
