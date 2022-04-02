@@ -261,7 +261,7 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, mat
 
         sentences_to_tag = 10 * math.ceil(len(SENTENCES) * global_proportion)
 
-        if sentences_to_tag > 1000:
+        if sentences_to_tag > 100:
             SENTENCES = SENTENCES[:sentences_to_tag]
 
         print(
