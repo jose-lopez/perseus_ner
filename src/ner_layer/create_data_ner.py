@@ -117,12 +117,12 @@ def tagging_ner_docs(sentences, matcher):
 
 
 def report_entities(docs, percentage, sentences_number,
-                    corpus_length, report):
+                    corpus_length, proportion, report):
 
     PATH_NER_ENTITIES = "reports/examples_ner_entities.jsonl"
 
     docs = define_sample(docs, percentage, sentences_number,
-                         corpus_length, PATH_NER_ENTITIES, report)
+                         corpus_length, PATH_NER_ENTITIES, proportion, report)
 
     file = open(
         PATH_NER_ENTITIES, 'w', encoding="utf8")
@@ -190,17 +190,12 @@ def from_corpus(CORPUS_PATH, sentences_number):
     return corpus_length, files_, proportion
 
 
-def define_sample(docs, percentage, sentences_number, corpus_length, file_name, report):
+def define_sample(docs, percentage, sentences_number, corpus_length, file_name, proportion, report):
 
-    if sentences_number < corpus_length:
-        proportion = sentences_number / corpus_length
-    else:
-        proportion = 1.0
-
-    if not report:
-        samples = len(docs) // 2
-    else:
+    if report:
         samples = sentences_number
+    else:
+        samples = math.ceil(len(docs) * proportion)
 
     pos_entities = math.ceil(samples * percentage)
     neg_entities = samples - pos_entities
@@ -222,10 +217,6 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
         if pos + neg == samples:
             break
 
-    if not report:
-        pos_entities = pos_entities // 2
-        neg_entities = neg_entities // 2
-
     if pos < pos_entities:
         print(
             f'File: {file_name} -> The required sentences with entities ({pos_entities}) is greater than the available ({pos}).'
@@ -241,7 +232,7 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
     return entities_sample
 
 
-def getting_ner_examples(files, sentences_number, corpus_length, percentage, matcher):
+def getting_ner_examples(files, sentences_number, corpus_length, percentage, proportion, matcher):
 
     files_counter = 1
     examples = []
@@ -261,10 +252,10 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, mat
         print("randomizing.....")
         random.shuffle(SENTENCES)
 
-        sentences_to_tag = math.ceil(len(SENTENCES) * proportion)
+        sentences_to_tag = 2 * math.ceil(len(SENTENCES) * proportion)
 
-        if sentences_to_tag >= 1000:
-            SENTENCES = SENTENCES[:1000]
+        if sentences_to_tag >= 100:
+            SENTENCES = SENTENCES[:100]
 
         print("tagging.....")
         with_entities, without_entities = tagging_ner_docs(
@@ -273,7 +264,7 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, mat
         entities = with_entities + without_entities
         random.shuffle(entities)
         entities_sample = define_sample(
-            entities, percentage, sentences_number, corpus_length, file_name, False)
+            entities, percentage, sentences_number, corpus_length, file_name, proportion, False)
         examples += entities_sample
 
         total_with_entities += len(with_entities)
@@ -282,9 +273,9 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, mat
         files_counter += 1
 
     print(
-        f'Total of sentences with entities in the corpus: {total_with_entities}')
+        f'Total of sentences with entities sampled....: {total_with_entities}')
     print(
-        f'Total of sentences without entities in the corpus: {total_without_entities}')
+        f'Total of sentences without entities sampled....: {total_without_entities}')
 
     random.shuffle(examples)
 
@@ -293,10 +284,10 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, mat
 
 if __name__ == '__main__':
 
-    CORPUS_PATH = "data/corpus/"
+    CORPUS_PATH = "data/corpus_en/"
 
-    PATTERNS_PATH = "data/patterns2.1.jsonl"
-    # PATTERNS_PATH = "data/names_patterns_en.jsonl"
+    # PATTERNS_PATH = "data/patterns2.1.jsonl"
+    PATTERNS_PATH = "data/names_patterns_en.jsonl"
 
     sentences_number, percentage = get_arguments(sys.argv)
 
@@ -305,8 +296,8 @@ if __name__ == '__main__':
     print("\n" + "\n")
 
     print("Loading the model...")
-    nlp = spacy.load("grc_ud_proiel_lg")
-    # nlp = spacy.load("en_core_web_sm")
+    # nlp = spacy.load("grc_ud_proiel_lg")
+    nlp = spacy.load("en_core_web_sm")
     print(".. done" + "\n")
 
     print("Loading the entities' patterns...")
@@ -321,13 +312,13 @@ if __name__ == '__main__':
         CORPUS_PATH, sentences_number)
     # getting the required ner examples
     ner_examples = getting_ner_examples(
-        files, sentences_number, corpus_length, percentage, proportion)
+        files, sentences_number, corpus_length, percentage, proportion, matcher)
     print(".. done" + "\n")
 
     print(
         "Reporting the required or available tagged sentences (examples_ner_entities.jsonl)..... ")
     report_entities(ner_examples, percentage,
-                    sentences_number, corpus_length, True)
+                    sentences_number, corpus_length, proportion, True)
     print(".. done" + "\n" + "\n")
 
     print(">>>>>>> Entities tagging finished...........")
