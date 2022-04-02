@@ -116,11 +116,13 @@ def tagging_ner_docs(sentences, matcher):
     return (with_entities, without_entities)
 
 
-def report_entities(docs, percentage, proportion):
+def report_entities(docs, percentage, sentences_number,
+                    corpus_length, report):
 
     PATH_NER_ENTITIES = "reports/examples_ner_entities.jsonl"
 
-    docs = define_sample(docs, percentage, proportion)
+    docs = define_sample(docs, percentage, sentences_number,
+                         corpus_length, PATH_NER_ENTITIES, report)
 
     file = open(
         PATH_NER_ENTITIES, 'w', encoding="utf8")
@@ -188,10 +190,18 @@ def from_corpus(CORPUS_PATH, sentences_number):
     return corpus_length, files_, proportion
 
 
-def define_sample(docs, percentage, proportion):
+def define_sample(docs, percentage, sentences_number, corpus_length, file_name, report):
 
-    samples = math.ceil(
-        len(docs) * proportion)
+    if sentences_number < corpus_length:
+        proportion = sentences_number / corpus_length
+    else:
+        proportion = 1.0
+
+    if not report:
+        samples = 2 * math.ceil(
+            len(docs) * proportion)
+    else:
+        samples = sentences_number
 
     pos_entities = math.ceil(samples * percentage)
     neg_entities = samples - pos_entities
@@ -213,9 +223,13 @@ def define_sample(docs, percentage, proportion):
         if pos + neg == samples:
             break
 
+    if not report:
+        pos_entities = pos_entities // 2
+        neg_entities = neg_entities // 2
+
     if pos < pos_entities:
         print(
-            f'The required sentences with entities ({pos_entities}) is greater than the available ({pos}).'
+            f'File: {file_name} -> The required sentences with entities ({pos_entities}) is greater than the available ({pos}).'
             f'Reporting anyways...')
     elif neg < neg_entities:
         print(
@@ -228,7 +242,7 @@ def define_sample(docs, percentage, proportion):
     return entities_sample
 
 
-def getting_ner_examples(files, matcher):
+def getting_ner_examples(files, sentences_number, corpus_length, percentage, matcher):
 
     files_counter = 1
     examples = []
@@ -237,17 +251,22 @@ def getting_ner_examples(files, matcher):
 
     for file_path in files:
 
+        file_name = file_path.split("/")[2]
+
         with open(file_path, 'r', encoding="utf8") as fl:
             SENTENCES = [line.strip() for line in fl.readlines()]
 
         print(
-            f'Defining the tagged NER examples for the corpus : {files_counter} | {len(files)}')
+            f'Defining the tagged NER examples for the corpus file -> {file_name}: {files_counter} | {len(files)}')
 
         with_entities, without_entities = tagging_ner_docs(
             SENTENCES, matcher)
 
         entities = with_entities + without_entities
-        examples += entities
+        random.shuffle(entities)
+        entities_sample = define_sample(
+            entities, percentage, sentences_number, corpus_length, file_name, False)
+        examples += entities_sample
 
         total_with_entities += len(with_entities)
         total_without_entities += len(without_entities)
@@ -259,8 +278,6 @@ def getting_ner_examples(files, matcher):
     print(
         f'Total of sentences without entities in the corpus: {total_without_entities}')
 
-    random.shuffle(examples)
-    random.shuffle(examples)
     random.shuffle(examples)
 
     return examples
@@ -295,12 +312,14 @@ if __name__ == '__main__':
     corpus_length, files, proportion = from_corpus(
         CORPUS_PATH, sentences_number)
     # getting the required ner examples
-    ner_examples = getting_ner_examples(files, matcher)
+    ner_examples = getting_ner_examples(
+        files, sentences_number, corpus_length, percentage, matcher)
     print(".. done" + "\n")
 
     print(
         "Reporting the required or available sentences(examples_ner_entities.jsonl)  ..... ")
-    report_entities(ner_examples, percentage, proportion)
+    report_entities(ner_examples, percentage,
+                    sentences_number, corpus_length, True)
     print(".. done" + "\n" + "\n")
 
     print(">>>>>>> Entities tagging finished...........")
