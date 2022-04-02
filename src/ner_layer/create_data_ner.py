@@ -295,8 +295,8 @@ if __name__ == '__main__':
 
     CORPUS_PATH = "data/corpus_en/"
 
-    # PATTERNS_PATH = "data/patterns2.1.jsonl"
-    PATTERNS_PATH = "data/names_patterns_en.jsonl"
+    PATTERNS_PATH = "data/patterns2.1.jsonl"
+    # PATTERNS_PATH = "data/names_patterns_en.jsonl"
 
     sentences_number, percentage = get_arguments(sys.argv)
 
@@ -305,8 +305,8 @@ if __name__ == '__main__':
     print("\n" + "\n")
 
     print("Loading the model...")
-    # nlp = spacy.load("grc_ud_proiel_lg")
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("grc_ud_proiel_lg")
+    # nlp = spacy.load("en_core_web_sm")
     print(".. done" + "\n")
 
     print("Loading the entities' patterns...")
