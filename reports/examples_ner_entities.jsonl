@@ -1,20 +1,99 @@
-{"text":"Shairi    really like      Odin.", "spans":[{"start":0,"end":6,"label":"PERSON"},{"start":27,"end":31,"label":"GOD"}]}
-{"text":"Zeus seems to be a bipolar God.", "spans":[{"start":0,"end":4,"label":"GOD"}]}
-{"text":"Here I     thought Poseidon only had one enemy but it seems he has a lot of others.", "spans":[{"start":19,"end":27,"label":"GOD"}]}
-{"text":"Horus in Ancient     Egyptian god, is one of the most significant deities related with    Egypt.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":90,"end":95,"label":"PERSON"}]}
-{"text":"The influence of the god     Thoth in Ancient Egyptian was big, Zaida thinks.", "spans":[{"start":29,"end":34,"label":"GOD"},{"start":64,"end":69,"label":"PERSON"}]}
-{"text":"Horus in Ancient     Egyptian god, is one of the most significant deities related with    Egypt.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":90,"end":95,"label":"PERSON"}]}
-{"text":"Thousands of     demonstrators have marched through Egypt to protest the war in Greece and demand the withdrawal of British troops from that country.", "spans":[{"start":52,"end":57,"label":"PERSON"},{"start":80,"end":86,"label":"PLACE"}]}
-{"text":"Here I     thought Poseidon only had one enemy but it seems he has a lot of others.", "spans":[{"start":19,"end":27,"label":"GOD"}]}
-{"text":"The influence     of the Great god Thoth in Ancient Egypt was big.", "spans":[{"start":25,"end":30,"label":"PERSON"},{"start":35,"end":40,"label":"GOD"},{"start":52,"end":57,"label":"PERSON"}]}
-{"text":"Here I     thought Poseidon only had one enemy but it seems he has a lot of others.", "spans":[{"start":19,"end":27,"label":"GOD"}]}
-{"text":"Horus in Ancient Egyptian god, and I think     Shirleni would like to know more about him.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":47,"end":55,"label":"PERSON"}]}
-{"text":"Shairi    really like      Odin.", "spans":[{"start":0,"end":6,"label":"PERSON"},{"start":27,"end":31,"label":"GOD"}]}
-{"text":"Horus in Ancient Egyptian god, and I think     Shirleni would like to know more about him.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":47,"end":55,"label":"PERSON"}]}
-{"text":"There aren't good or bad gods.", "spans":[]}
-{"text":"Georg really like     Thoth.", "spans":[{"start":0,"end":5,"label":"PERSON"},{"start":22,"end":27,"label":"GOD"}]}
-{"text":"Zeus seems to be a bipolar God.", "spans":[{"start":0,"end":4,"label":"GOD"}]}
-{"text":"A nice god is one the doesn't believe he is better than anybody.", "spans":[]}
-{"text":"The influence     of the Great god Thoth in Ancient Egypt was big.", "spans":[{"start":25,"end":30,"label":"PERSON"},{"start":35,"end":40,"label":"GOD"},{"start":52,"end":57,"label":"PERSON"}]}
-{"text":"The influence of the god     Thoth in Ancient Egyptian was big, Zaida thinks.", "spans":[{"start":29,"end":34,"label":"GOD"},{"start":64,"end":69,"label":"PERSON"}]}
-{"text":"Thousands of     demonstrators have marched through Egypt to protest the war in Greece and demand the withdrawal of British troops from that country.", "spans":[{"start":52,"end":57,"label":"PERSON"},{"start":80,"end":86,"label":"PLACE"}]}
+{"text":"ἣ καὶ Λύχνος, Θρυαλλίς, Χίμαιρα, Λαμπάς. ὅτι Δίφιλος ἐν ἀγῶνι ἀσχη-", "spans":[{"start":6,"end":12,"label":"PERSON"},{"start":14,"end":22,"label":"PERSON"},{"start":24,"end":31,"label":"PERSON"},{"start":33,"end":39,"label":"PERSON"},{"start":45,"end":52,"label":"PERSON"}]}
+{"text":"Μεσσήνῃ φησὶ τῇ κατὰ τὴν νῆσον Βότρυν γενέσθαι εὑρετὴν τῶν παρα-", "spans":[{"start":0,"end":7,"label":"PERSON"},{"start":31,"end":37,"label":"PERSON"}]}
+{"text":"ὅτι ὁ Ὀλύμπιος Περικλῆς ἀπαλλάξας ἐκ τῆς οἰκίας τὴν γυναῖκα ᾤκει", "spans":[{"start":6,"end":14,"label":"PERSON"},{"start":15,"end":23,"label":"PERSON"}]}
+{"text":"καὶ αὐτὸ οὔτε ἡ Δομιτία ἡ γυνὴ αὐτοῦ οὔτε δὲ ὁ Νωρβανὸς ὁ", "spans":[{"start":16,"end":23,"label":"PERSON"},{"start":47,"end":55,"label":"PERSON"}]}
+{"text":"οὐχ ὅτι τι εἶχεν, ἀλλ' ὅτι καὶ προσλαβεῖν ἠθέλησεν, ὃ καὶ ἐγένετο·", "spans":[]}
+{"text":"νίσατο, καὶ εἴ γε μὴ ἥ τε Μαῖσα καὶ ἡ Σοαιμίς (συνῆσαν γὰρ ἤδη", "spans":[{"start":26,"end":31,"label":"PERSON"},{"start":38,"end":45,"label":"PERSON"}]}
+{"text":"κόλποιο Διωνύσοιο φέρουσα κρατὶ δ' ἔχει λεύκαν, Ἡράκλεος ἱερὸν ἔρνος.", "spans":[{"start":8,"end":17,"label":"PERSON"},{"start":48,"end":56,"label":"PERSON"}]}
+{"text":"τραπεῖσαν αὐτῷ παρ' ἡμῶν ἀρχὴν ἀπεληλυθώς, ἢ Βροῦτος ὁ κω-", "spans":[{"start":45,"end":52,"label":"PERSON"}]}
+{"text":"ἐπέστειλε τῇ βουλῇ αὐτοχειρίᾳ ἄλλα τε καὶ ὡς οὐδένα ἄνδρα ἀγα-", "spans":[]}
+{"text":"δὲ παραπλήσιά φησιν εἶναι ψῆτταν βούγλωσσον ταινίαν. Ἀριστοτέλης", "spans":[{"start":53,"end":64,"label":"PERSON"}]}
+{"text":"ἔχον ποιῆσαι ἢ κατὰ χώραν μείνας ἀναγκασθῆναί τι κακὸν δρᾶσαι.", "spans":[]}
+{"text":"καὶ αἱ ἐλεύθεραι γυναῖκες τὰς συνήθεις καὶ φίλας ἑταίρας, ὡς Σαπφώ·", "spans":[{"start":61,"end":66,"label":"PERSON"}]}
+{"text":"καὶ περὶ τοῦ Κύρου οὖν ὃ μὲν λέγει ὡς ἐκ πρώτης ἡλικίας ἐπεπαίδευτο", "spans":[{"start":13,"end":18,"label":"PERSON"}]}
+{"text":"χαλεπώτερα αὐτῷ γίγνεται. ὁ γοῦν Φαρνάκης μετά τε τῶν προπαρ-", "spans":[{"start":33,"end":41,"label":"PERSON"}]}
+{"text":"στεφάνη χρυσῆ, ἐπ' ἄλλου κέρας χρυσοῦν, ἐπ' ἄλλου στέφανος χρυσοῦς.", "spans":[]}
+{"text":"Ῥωμαίοις συμμαχούντων ἐσφάλη· ταῖς τε γὰρ ὁρμαῖς ἀπλήστοις", "spans":[{"start":0,"end":8,"label":"GROUP"}]}
+{"text":"καὶ θανούσῃ πολυτάλαντον μνημεῖον κατεσκεύασε περὶ οὗ Δικαίαρχός φησιν,", "spans":[{"start":54,"end":64,"label":"PERSON"}]}
+{"text":"Κάραβος ἐφθῆς. ὅτι ἐν Φιλομήτορι Ἀντιφάνης ἐπαινῶν τὴν μήτραν φησίν·", "spans":[{"start":0,"end":7,"label":"PERSON"},{"start":22,"end":32,"label":"PERSON"},{"start":33,"end":42,"label":"PERSON"}]}
+{"text":"Ἐπίκουρος ἅπαντας εἰσάγει προφήτας ἀτόμων καὶ ταῦτ' ἔχων παραδείγματα", "spans":[{"start":0,"end":9,"label":"PERSON"}]}
+{"text":"λέγεται, διὰ τοῦ κ̅ ἐπὶ γενικῆς κλίνεται, κήρυκος, πέλυκος, Ἔρυκος,", "spans":[{"start":60,"end":66,"label":"PERSON"}]}
+{"text":"ἀπὸ τῆς ὥρας. καὶ ἐν Ἐφέσῳ δὲ ἱερὸν ἵδρυτο Ἑταίρᾳ Ἀφροδίτῃ. Γύγης", "spans":[{"start":21,"end":26,"label":"PERSON"},{"start":43,"end":49,"label":"PERSON"},{"start":50,"end":59,"label":"PERSON"},{"start":60,"end":65,"label":"PERSON"}]}
+{"text":"τὴν Ἀκτὴν μάλιστα κυριεύουσα. ἡ δὲ δὴ Ἀκτὴ ἐπέπρατο μὲν ἐκ", "spans":[{"start":38,"end":42,"label":"PERSON"}]}
+{"text":"τὰ δὲ ἐκκλίνῃς. μὴ γὰρ δὴ ἡγήσῃ δεόντως τι παρὰ τοῦτο πράτ-", "spans":[]}
+{"text":"δ' ἐντὸς ἦν καὶ τὰς κώπας ἔλαβον οἱ ἐρέται, Χρυσόγονος μὲν ηὔλει τὸ", "spans":[{"start":44,"end":54,"label":"PERSON"}]}
+{"text":"τὸν Πομπήιον· καὶ ὁ Μίλων ἐπὶ μὲν τούτῳ οὐκ ἐσήχθη (τὸ γὰρ", "spans":[{"start":4,"end":12,"label":"GROUP"},{"start":20,"end":25,"label":"PERSON"}]}
+{"text":"πότιμον. εἰπόντων δὲ τῶν ἱμώντων, ἦσαν δὲ χλωροί, ὡς ἡμεῖς γε τοῦτο", "spans":[]}
+{"text":"κατασχόντες τὴν Σιρῖτιν χώραν περδίκων ἀναπτάντων καὶ ποιησάντων", "spans":[{"start":16,"end":23,"label":"PERSON"}]}
+{"text":"νῶν δ' εὕρημα κέρατα καὶ σάλπιγγες. σύριγγα δ' εὗρε Μαρσύας καὶ αὐλὸν", "spans":[{"start":52,"end":59,"label":"PERSON"}]}
+{"text":"τε πλείστους ὅσους ἄγειν (καὶ γὰρ πύργους ἔφερον, ὅπως ὥσπερ", "spans":[]}
+{"text":"ὄρχησιν ἁπλουστέραν ἔχοντα καλεῖται δάκτυλοι, ἰαμβική, Μολοσσική,", "spans":[{"start":55,"end":64,"label":"PERSON"}]}
+{"text":"Σέξτον ἐς τὴν Σικελίαν ἀπεχώρησαν. ἥ τε Ἰουλία ἡ τῶν Ἀντωνίων", "spans":[{"start":0,"end":6,"label":"PERSON"},{"start":14,"end":22,"label":"PLACE"},{"start":40,"end":46,"label":"PERSON"},{"start":53,"end":61,"label":"PERSON"}]}
+{"text":"κεφαλὴν ἁπαλὰ καὶ εὐστόμαχα ἔχει καὶ εὔπεπτα. τὰ δ' ἄλλα οὔ. κρείτ-", "spans":[]}
+{"text":"σώματι καὶ τίκτει ᾠὰ βοτρυδόν. λέγουσι δὲ καὶ ὡς ἂν ἀπορήσῃ τροφῆς", "spans":[]}
+{"text":"δὲ καὶ βρυτήρ. ὅτι καὶ Σάμιοι ἐτρύφων βαδίζοντες κατεκτενισμένοι τὰς", "spans":[{"start":23,"end":29,"label":"GROUP"}]}
+{"text":"ἐραστὴν καὶ ἐνιαυτοῦ παῖδα, τὰ ῥόδα δὲ ἔαρος τιθήνημα. καὶ ἀλλαχοῦ", "spans":[]}
+{"text":"που· λιθάργυρος δ' ὄλπη παρῃωρεῖτο χρίσματος πλεκτὸν Σπαρτιάτην γραπτὸν", "spans":[{"start":53,"end":63,"label":"PERSON"}]}
+{"text":"ὑποστρατήγοις ἄλλοις τε ἄλλα καὶ τῷ Ἀγρίππᾳ στέφανον χρυσοῦν", "spans":[{"start":36,"end":43,"label":"PERSON"}]}
+{"text":"ὑπερέβαλεν οὐδὲν τῆς Φαιάκων τρυφῆς ἀποδέων, πλὴν ὅσον οἳ μὲν μετὰ", "spans":[]}
+{"text":"παραπλησίως δὲ ἐπέστελλε καὶ Ἀρχιδάμῳ τῷ Λακεδαιμονίων βασιλεῖ καὶ", "spans":[{"start":29,"end":37,"label":"PERSON"},{"start":41,"end":54,"label":"PERSON"}]}
+{"text":"καὶ ὅτι ἡ Ἰνδικὴ συκῆ καλουμένη μικρὸν ἔχει τὸν καρπὸν καὶ ὀλίγον, ὡς", "spans":[{"start":10,"end":16,"label":"GROUP"}]}
+{"text":"σείω καὶ συμβούλου στρατηγοῦ τέ σου δέομαι.“ ὁ οὖν Φαβρίκιος", "spans":[{"start":51,"end":60,"label":"PERSON"}]}
+{"text":"μισεν Ὑπερίδης εἰπών· οὐ σιωπήσῃ μεῖζον τῆς μητρὸς ἔχων τὸ φύσημα;", "spans":[{"start":6,"end":14,"label":"PERSON"}]}
+{"text":"λύσειν. ὁ οὖν Ἀντώνιος φοβηθεὶς τήν τε ἐπίκαμψιν αὐτοῦ καὶ τὴν", "spans":[{"start":14,"end":22,"label":"PERSON"}]}
+{"text":"τὸν ἀνθρώπους ὑπερενεγκὼν ὥστε καὶ δωρεὰν τοῖς Ῥωμαίοις ἀνὰ", "spans":[{"start":47,"end":55,"label":"GROUP"}]}
+{"text":"χθησαν ἀλλὰ τόν τε Σάξαν καὶ τὸν Νωρβανὸν ἐς τὴν Μακεδονίαν", "spans":[{"start":19,"end":24,"label":"PERSON"},{"start":33,"end":41,"label":"GROUP"},{"start":49,"end":59,"label":"PERSON"}]}
+{"text":"ὅτι ἐν τῇ Ἐρυμνέως τοῦ περιπατητικοῦ σχολῇ, φησὶ Ποσειδώνιος, Ἀθηνίων", "spans":[{"start":16,"end":18,"label":"WORK"},{"start":49,"end":60,"label":"PERSON"},{"start":62,"end":69,"label":"PLACE"}]}
+{"text":"πλείονι τὸν Ἰόνιον ἀσφαλῶς ἐπεραιώθησαν. καὶ Καῖσαρ μὲν ἐν", "spans":[{"start":12,"end":18,"label":"PERSON"},{"start":45,"end":51,"label":"PERSON"}]}
+{"text":"κεστρῖνός ἐστι νῆστις· εἰς τοὺς καλοὺς δ' ὅταν βλέπῃ, καινὸς θεατροποιός·", "spans":[]}
+{"text":"ἐξυδαροῦσθαι γάρ, φησὶν Ἀριστοτέλης ἐν τοῖς φυσικοῖς προβλήμασι, τῶν", "spans":[{"start":24,"end":35,"label":"PERSON"}]}
+{"text":"ἡδέως ἤκουεν ἔκ τε τῆς ψυχῆς τοῦ Ἀντινόου ὄντως τὸν ἀστέρα", "spans":[{"start":33,"end":41,"label":"PERSON"}]}
+{"text":"Ἰβηρίας ἄρχοντα, δύ-", "spans":[{"start":0,"end":7,"label":"PLACE"}]}
+{"text":"τέρους ἧττον πέττεσθαί τε μᾶλλον δύναται. Γλαυκίδης δὲ ἄριστα ἀκροδρύων", "spans":[{"start":42,"end":51,"label":"PERSON"}]}
+{"text":"καρκίνον, νυκτὸς δὲ παῖδα τὸν ὕπνον, βουφόνον δὲ Διονύσου θεράποντα τὸν πέ-", "spans":[{"start":49,"end":57,"label":"PERSON"}]}
+{"text":"ἐξ ὕδατος ἡψημένον τακερῶς, καὶ πάντων θαυμαζόντων τοῦ μαγείρου τὴν", "spans":[]}
+{"text":"κίαν ἐλθὼν εὐδαίμονα χώραν τὸν κάπρον ἂν ἐσίδῃς ὠνοῦ καὶ μὴ κατά-", "spans":[]}
+{"text":"οὔτε ἐς τὰ στρατόπεδα οὔτε ἐς τὰς ἐκκλησίας ἐτόλμησέ ποτε ἐσελ-", "spans":[]}
+{"text":"τῆς ἀρχῆς ἀξίωμα τῆς τοῦ Λογγίνου ταφῆς ποιησάμενος. Xiph.", "spans":[{"start":25,"end":33,"label":"PERSON"}]}
+{"text":"κόκκυγες. κἀγλαοὶ κόκκυγες, φησὶν Ἐπίχαρμος, οὓς παρσχίζομες πάντες,", "spans":[{"start":34,"end":43,"label":"PERSON"}]}
+{"text":"ἀπῆρε σύν τε τῇ γυναικὶ Λιουίᾳ Δρουσίλλῃ καὶ σὺν τῷ υἱεῖ Τι-", "spans":[{"start":24,"end":30,"label":"PERSON"},{"start":31,"end":40,"label":"PERSON"}]}
+{"text":"ποτὲ Εὐριπίδην ἰδοῦς' ἐν κήπῳ πινακίδα καὶ γραφεῖον ἐξηρτημένον ἔχοντα·", "spans":[{"start":5,"end":14,"label":"PERSON"}]}
+{"text":"ἐν Ῥόδῳ λέγεται τὴν Νεστορίδα κατασκευάσαι τῶν μαθητῶν αὐτῷ συν-", "spans":[{"start":3,"end":7,"label":"PERSON"},{"start":20,"end":29,"label":"GROUP"}]}
+{"text":"οὐδὲν ἔτι ἔφερεν, ἀλλ' ἐφοίτα μόνον· παιδίον, ἔφη, ὥσπερ πρὸς Ἱππόμαχον", "spans":[{"start":62,"end":71,"label":"PERSON"}]}
+{"text":"ἀνυπεύθυνον τὸ ἄπιστον διὰ τὴν ἔχθραν γένηται. τῷ μὲν οὖν ἐν Δελφοῖς", "spans":[{"start":61,"end":68,"label":"PLACE"}]}
+{"text":"ριενόστουν· ἰδίᾳ δὲ τὰ ἐναντιώτατα τῶν φανερῶν οἱ τῷ τε Καί-", "spans":[]}
+{"text":"Κρισπίνου ὑπάτευσε, καὶ αὐτῷ σημεῖα οὐκ ἀγαθὰ συνηνέχθη· πολλὰ", "spans":[{"start":0,"end":9,"label":"PERSON"}]}
+{"text":"ἅπασιν ἁ κακόφρων Τέρψις κρείσσων ἐμοῦ κέκριται. Βάτων ὁ κωμικός", "spans":[{"start":18,"end":24,"label":"PERSON"},{"start":49,"end":54,"label":"GROUP"}]}
+{"text":"εἰσι καὶ πολύτροφοι. ἐν δὲ τοῖς ταρίχεσι τὰς Μακεδονικὰς ἐγχέλεις κατα-", "spans":[{"start":45,"end":56,"label":"GROUP"}]}
+{"text":"τέρα ἁπάντων τῶν ἀνθρώπων εἶναι. M. 14 (p. 140).", "spans":[{"start":33,"end":35,"label":"PERSON"}]}
+{"text":"ὑμῖν πρὸς ἀσφάλειαν τήν τε ἐπιείκειαν καὶ τὴν φιλανθρωπίαν", "spans":[]}
+{"text":"ἐπὶ δεῖπνον τὸν Βαβυλωνίων καὶ Σελευκέων τύραννον Ἵμερον μετὰ τὸ τὰς", "spans":[{"start":16,"end":26,"label":"PERSON"},{"start":31,"end":40,"label":"PERSON"},{"start":50,"end":56,"label":"PERSON"}]}
+{"text":"ἧς ἐρωτώμενος ὁ πρότερος αὐτῆς ἐραστὴς Σμικρίνης τί ποιεῖ Ἀρχίππη", "spans":[{"start":39,"end":48,"label":"PERSON"},{"start":58,"end":65,"label":"PERSON"}]}
+{"text":"θαλίῃσι· θανόντι τοι οὔτις ὄνησις. καὶ γὰρ ἐγὼ σποδός εἰμι, Νίνου μεγάλης", "spans":[{"start":60,"end":65,"label":"PERSON"}]}
+{"text":"ἐκ πολλῶν δὲ καὶ ἄλλων ἔστι δεῖξαι ὡς ἔπλαττε τοὺς διαλόγους. ὅτι δὲ", "spans":[]}
+{"text":"ὕστερον ἐγένετο κόλαξ δεινὸς Πτολεμαίου τοῦ ἑβδόμου τοῦ καὶ Εὐεργέτου", "spans":[{"start":60,"end":69,"label":"PERSON"}]}
+{"text":"Ἀντωνίᾳ τῇ μητρὶ ἱπποδρομίας ἐς τὰ γενέσια ἔδωκε, τὰς πανηγύ-", "spans":[{"start":0,"end":7,"label":"GROUP"}]}
+{"text":"πολλὰ τοῦ Χαράξου νοσφισαμένην. Ἡρόδοτος δ' αὐτὴν Ῥοδῶπιν καλεῖ ἀγνοῶν", "spans":[{"start":10,"end":17,"label":"PERSON"},{"start":32,"end":40,"label":"PERSON"},{"start":50,"end":57,"label":"PERSON"}]}
+{"text":"δειλῶν δ' ἀπέχου, γνοὺς ὅτι δειλοῖς ὀλίγη χάρις. παῖ Τελαμῶνος, Αἶαν", "spans":[{"start":53,"end":62,"label":"PERSON"},{"start":64,"end":68,"label":"PERSON"}]}
+{"text":"ρίσσιμον αὐτόν, πρὸς τὴν τοῦ Ῥωμαϊκοῦ ῥήματος ἔννοιαν κομψευό-", "spans":[{"start":29,"end":37,"label":"GROUP"}]}
+{"text":"τῆς ἑταίρας παιδοποιησάμενος· ἱστορεῖ Καρύστιος. Δημήτριος δὲ ὁ Πολιορκητὴς", "spans":[{"start":38,"end":47,"label":"PERSON"},{"start":49,"end":58,"label":"PERSON"},{"start":64,"end":75,"label":"PERSON"}]}
+{"text":"του οἰκοῦντες προεχώρησαν μὲν μέχρι τῆς πόλεως τῆς Ἐλεφαντίνης", "spans":[{"start":51,"end":62,"label":"PERSON"}]}
+{"text":"τῶν δ' οὖν Πάρθων τῶν τε Μήδων δεινῶς ἐφ' οἷς ἐπεπόνθεσαν", "spans":[{"start":11,"end":17,"label":"PERSON"}]}
+{"text":"δειπνεῖν ἐν τοῖς γενεθλίοις αὐτοῦ δοῦναι· οὐ γὰρ ἐξῆν οὐδέτερον.", "spans":[]}
+{"text":"μαίοις καιρὸν ἐν τῷ διακένῳ τούτῳ τὸ τεῖχος διασεῖσαι. μαθόντες", "spans":[]}
+{"text":"παρὰ δὲ Κράτητι εἰπών τις δοῦλον οὐδὲ εἷς κεκτήσεται οὐδὲ δούλην, ἀλλ'", "spans":[{"start":8,"end":15,"label":"PERSON"}]}
+{"text":"προστασίαν ....... | ἀνελέξατο ........ | Μακρίνου ϲ ........", "spans":[{"start":42,"end":50,"label":"PERSON"}]}
+{"text":"γ. Ὡς ἠγγέλθη τὰ κατὰ Καίσαρα καὶ Πομπήιον εἰς Ῥώμην καὶ 〈ἃ〉 ἐψηφίσαντο", "spans":[{"start":22,"end":29,"label":"PERSON"},{"start":34,"end":42,"label":"PERSON"},{"start":47,"end":52,"label":"PERSON"}]}
+{"text":"τὴν Ῥώμην ἐπεστράτευσε, τά τε συμμαχικὰ αὐτῆς ὀλίγου πάντα,", "spans":[{"start":4,"end":9,"label":"PERSON"}]}
+{"text":"οὐκ ἐγκαλυπτόμενος ὁ Ἐπίκουρος λέγει μεγάλῃ τῇ φωνῇ· οὐ γὰρ ἔγωγε", "spans":[{"start":21,"end":30,"label":"PERSON"}]}
+{"text":"αὐτῆς καὶ Νικοδάμαντος τὴν χερσαίαν χελώνην. καὶ καθόλου πάντα τὰ", "spans":[{"start":10,"end":22,"label":"PERSON"}]}
+{"text":"ὕδατι πίνεται κεκραμένον. διὸ ὀνομασθῆναι τὰς πηγὰς Νύμφας καὶ τιθήνας", "spans":[{"start":52,"end":58,"label":"PERSON"}]}
+{"text":"ἣν ἐγὼ κατήσθιον. Ξενοφάνης ὁ Κολοφώνιος· πέμψας γὰρ κωλῆν ἐρίφου", "spans":[{"start":18,"end":27,"label":"PERSON"},{"start":30,"end":40,"label":"PERSON"}]}
+{"text":"ραπλησίους ὀστρείοις, τῷ δὲ σχήματι ῥομβοειδεῖς. φησί που Εὔβουλος·", "spans":[{"start":58,"end":66,"label":"PLACE"}]}
+{"text":"καινουργοῦσι κατὰ τὰς φωνάς. Στράττις οὖν φησι· συνίετ' οὐδέν, πᾶσα", "spans":[{"start":29,"end":37,"label":"PERSON"}]}
+{"text":"παράδοξον τῆς τύχης θαυμάζοντες, εἰ ὁ παρέγγραφος Ἀθηνίων εἰς Ἀθήνας", "spans":[{"start":50,"end":57,"label":"PLACE"},{"start":62,"end":68,"label":"PLACE"}]}
+{"text":"μαθὼν οὖν τοῦτο ὁ Καῖσαρ, καὶ ἰδὼν ὅτι καὶ οἱ μεθ' ἑαυτοῦ", "spans":[{"start":18,"end":24,"label":"PERSON"}]}
+{"text":"αὖθις ἐς τὸ Καπιτώλιον, καὶ λαβὼν αὐτὰς οἴκαδε ἀπεκόμισε. γε-", "spans":[{"start":12,"end":22,"label":"GROUP"}]}
+{"text":"ἢ Θετταλοί, Ἠλείους ἔφησεν. ἀναστήσας δέ ποτε τρόπαιον ἐν τῇ διατριβῇ", "spans":[{"start":2,"end":10,"label":"PERSON"},{"start":12,"end":19,"label":"GROUP"}]}
+{"text":"<Σμινδυρίδῃ> δὲ τῷ Συβαρίτῃ ἐπὶ πλεῖστον χλιδῆς ἀφικομένῳ χίλιοι", "spans":[{"start":1,"end":11,"label":"PERSON"},{"start":19,"end":27,"label":"PERSON"}]}
+{"text":"στέφανον χρυσοῦν τῷ πρώτῳ ἐκπιόντι χοᾶ πρῶτος ἐξέπιε Ξενοκράτης ὁ", "spans":[{"start":53,"end":63,"label":"PERSON"}]}

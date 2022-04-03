@@ -195,7 +195,7 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
     if report:
         samples = sentences_number
     else:
-        samples = math.ceil(len(docs) * proportion)
+        samples = len(docs)
 
     pos_entities = math.ceil(samples * percentage)
     neg_entities = samples - pos_entities
@@ -226,8 +226,8 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
             f'The required sentences without entities ({neg_entities}) is greater than the available ({neg})).'
             f'Reporting anyways...')
 
-    print(f'Number of sentences with entities {pos} | {samples}')
-    print(f'Number of sentences without entities {neg} | {samples}')
+    print(f'Number of sampled sentences with entities  {pos} | {samples}')
+    print(f'Number of sampled sentences without entities {neg} | {samples}')
 
     return entities_sample
 
@@ -252,12 +252,13 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, pro
         print("randomizing.....")
         random.shuffle(SENTENCES)
 
-        sentences_to_tag = 2 * math.ceil(len(SENTENCES) * proportion)
+        sentences_to_tag = math.ceil(len(SENTENCES) * proportion)
 
         if sentences_to_tag >= 100:
             SENTENCES = SENTENCES[:100]
 
         print("tagging.....")
+        print(f'sentences to tag: {len(SENTENCES)}')
         with_entities, without_entities = tagging_ner_docs(
             SENTENCES, matcher)
 
@@ -273,9 +274,9 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, pro
         files_counter += 1
 
     print(
-        f'Total of sentences with entities sampled....: {total_with_entities}')
+        f'Total of sampled sentences with entities....: {total_with_entities}')
     print(
-        f'Total of sentences without entities sampled....: {total_without_entities}')
+        f'Total of sampled sentences without entities....: {total_without_entities}')
 
     random.shuffle(examples)
 
@@ -284,10 +285,10 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, pro
 
 if __name__ == '__main__':
 
-    CORPUS_PATH = "data/corpus_en/"
+    CORPUS_PATH = "data/corpus"
 
-    # PATTERNS_PATH = "data/patterns2.1.jsonl"
-    PATTERNS_PATH = "data/names_patterns_en.jsonl"
+    PATTERNS_PATH = "data/patterns2.1.jsonl"
+    # PATTERNS_PATH = "data/names_patterns_en.jsonl"
 
     sentences_number, percentage = get_arguments(sys.argv)
 
@@ -296,8 +297,8 @@ if __name__ == '__main__':
     print("\n" + "\n")
 
     print("Loading the model...")
-    # nlp = spacy.load("grc_ud_proiel_lg")
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("grc_ud_proiel_lg")
+    # nlp = spacy.load("en_core_web_sm")
     print(".. done" + "\n")
 
     print("Loading the entities' patterns...")
