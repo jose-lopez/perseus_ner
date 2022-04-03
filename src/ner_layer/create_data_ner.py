@@ -197,7 +197,7 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
     else:
         samples = len(docs)
 
-    pos_entities = math.ceil(samples * percentage)
+    pos_entities = math.floor(samples * percentage)
     neg_entities = samples - pos_entities
 
     pos = 0
@@ -252,8 +252,8 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, pro
         print("randomizing.....")
         random.shuffle(SENTENCES)
 
-        if len(SENTENCES) >= 100:
-            SENTENCES = SENTENCES[:100]
+        if len(SENTENCES) >= 12:
+            SENTENCES = SENTENCES[:12]
 
         print("tagging.....")
         print(f'sentences to tag: {len(SENTENCES)}')
