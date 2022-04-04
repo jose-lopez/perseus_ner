@@ -192,6 +192,8 @@ def from_corpus(CORPUS_PATH, sentences_number):
 
 def define_sample(docs, percentage, sentences_number, corpus_length, file_name, proportion, report):
 
+    labels = ["GOD", "PERSON", "PLACE", "GROUP", "WORK"]
+
     if report:
         samples = sentences_number
     else:
@@ -204,7 +206,20 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
     neg = 0
     entities_sample = []
 
+    minimum_umbral = 3
+    minimums_on_process = {}
+    minimum_reachead = False
+
     for doc in docs:
+        if report:
+            """
+            getting_minimuns: funcion debe redefinir las cantidades pos y neg entities, que reste por definir una vez se hayan alcanzado
+            los minimos en cada categoria (de ser posible). Para esto ultimo se recorrera la lista docs, se defniran las entidades
+            positivas y negativas relativas al umbral y se devolvera la lista docs modificada, sin las entidades que se detectaron en el recorrido.
+            Asi la nueva lista de docs podra ser recorrida para terminar de reportar el numero de muestras indicadas en "samples"
+            getting_minimuns(docs, minimum_umbral, minimums_on_process)
+            
+            """
 
         if doc.ents:
             if pos < pos_entities:
@@ -213,9 +228,9 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
         elif neg < neg_entities:
             entities_sample.append(doc)
             neg += 1
-
-        if pos + neg == samples:
-            break
+    
+            if pos + neg == samples:
+                break
 
     if pos < pos_entities:
         print(
@@ -231,6 +246,8 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
 
     return entities_sample
 
+def analyzing_minimun(doc, minimum):
+    
 
 def getting_ner_examples(files, sentences_number, corpus_length, percentage, proportion, matcher):
 
@@ -283,10 +300,10 @@ def getting_ner_examples(files, sentences_number, corpus_length, percentage, pro
 
 if __name__ == '__main__':
 
-    CORPUS_PATH = "data/corpus"
+    CORPUS_PATH = "data/corpus_en"
 
-    PATTERNS_PATH = "data/patterns2.1.jsonl"
-    # PATTERNS_PATH = "data/names_patterns_en.jsonl"
+    # PATTERNS_PATH = "data/patterns2.1.jsonl"
+    PATTERNS_PATH = "data/names_patterns_en.jsonl"
 
     sentences_number, percentage = get_arguments(sys.argv)
 
@@ -295,8 +312,8 @@ if __name__ == '__main__':
     print("\n" + "\n")
 
     print("Loading the model...")
-    nlp = spacy.load("grc_ud_proiel_lg")
-    # nlp = spacy.load("en_core_web_sm")
+    # nlp = spacy.load("grc_ud_proiel_lg")
+    nlp = spacy.load("en_core_web_sm")
     print(".. done" + "\n")
 
     print("Loading the entities' patterns...")

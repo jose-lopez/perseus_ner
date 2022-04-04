@@ -1,22 +1,23 @@
-{"text":"τὸν ἐν τῷ τοῦ πονηροῦ σχήματι. Ἀλλ', ὦ ἀσεβέ-", "spans":[]}
-{"text":"Ῥωμαίων ἐλευθερίας. τὰ γὰρ ἄλλα κοινὴν ἡ", "spans":[{"start":0,"end":7,"label":"PERSON"}]}
-{"text":"τὤνυμα. ἴδιον δέ ἐστι γένος καράβων καὶ ἀστακῶν ἄλλο, ἔτι δὲ καρίδων.", "spans":[]}
-{"text":"ἀνελάβετο εἰς τὴν οἰκίαν. Δημοσθένη δὲ τὸν ῥήτορα καὶ τεκνοποιήσασθαι", "spans":[{"start":26,"end":35,"label":"PERSON"}]}
-{"text":"δικαίῳ;« Τῷ δὲ Ἰησοῦ ἔλεγε· »Μνήσθητί μου, Κύ-", "spans":[{"start":15,"end":20,"label":"PERSON"},{"start":29,"end":37,"label":"PERSON"},{"start":43,"end":46,"label":"PERSON"}]}
-{"text":"ἀφῆκε· καὶ μικρὸν ἔφθησαν ὑπεκφυγόντες, διὰ", "spans":[]}
-{"text":"Stobaeus, Florileg. I 29, 2 (Vol. I p. 235, 9—238, 12", "spans":[{"start":10,"end":18,"label":"PERSON"}]}
-{"text":"teriorem Oceanum ad lunae ambitum compati vero in-", "spans":[]}
-{"text":"γήσουσιν οἱ σημάντορες οἱ μεγάλοι προφῆται καὶ ὁ", "spans":[]}
-{"text":"ἀποδοὺς ὁ Καῖσαρ, αὐτὸς ἰδίας ἔχθρας οὐδενὶ", "spans":[{"start":10,"end":16,"label":"PERSON"}]}
-{"text":"ἐπειδὰν δὴ ἐγχρίμψας τόπος τις γῆς ἀνακόψῃ τῆς πνοῆς", "spans":[]}
-{"text":"καὶ τὸ κεραννύειν καὶ τὸν κρατῆρα τὸν Πανιώνιον οἱ Ἕλληνες κεραννύουσιν.", "spans":[{"start":38,"end":47,"label":"PERSON"}]}
-{"text":"βορον, ἄλλο δ' οὐδέν. μέμνηται δὲ καὶ Λυκοῦργος Εἰρηνίδος ἑταίρας καὶ", "spans":[{"start":38,"end":47,"label":"PERSON"},{"start":48,"end":57,"label":"PERSON"}]}
-{"text":"ἀποφαίνει Ἀρτεμίδωρος.", "spans":[{"start":10,"end":21,"label":"PERSON"}]}
-{"text":"τὸν <σίαλον>, ἔτι δὲ τὸν ἔμετον αὐτοῦ μέλιτος ἔλεγον εἶναι γλυκύτερον.", "spans":[]}
-{"text":"terius mare: iuxta columnas 〈enim〉 ei Herculis solum-", "spans":[{"start":38,"end":46,"label":"PERSON"}]}
-{"text":"Ἀβραὰμ γενέσθαι, αὐτός ἐστι, πῶς λέγεις, ὅτι μετὰ", "spans":[{"start":0,"end":6,"label":"PERSON"}]}
-{"text":"Τούτων τοίνυν πληρωθέντων, λέγει ὁ μέγας εὐ-", "spans":[{"start":0,"end":6,"label":"GROUP"}]}
-{"text":"Stobaeus, Florileg. I 31, 8 (Vol. I p. 246,1—247,13", "spans":[{"start":10,"end":18,"label":"PERSON"},{"start":34,"end":35,"label":"PERSON"}]}
-{"text":"μὴ θελήσας, μανικὸν ἡγεῖτο· πρεσβεύειν δὲ πρὸς", "spans":[]}
-{"text":"ἐπάρχων ὀμνύειν εὐθὺς εἰς τὸν Οὐϊτέλλιον κελεύ-", "spans":[{"start":30,"end":40,"label":"PERSON"}]}
-{"text":"γναφεύς, Δωρίων τὸ ἐκ τῆς ἑψήσεως τοῦ γναφέως ὑγρόν φησι πάντα", "spans":[{"start":9,"end":15,"label":"PERSON"}]}
+{"text":"Almost everybody likes good movies.", "spans":[]}
+{"text":"Shairi    really like      Odin.", "spans":[{"start":0,"end":6,"label":"PERSON"},{"start":27,"end":31,"label":"GOD"}]}
+{"text":"Here I     thought Poseidon only had one enemy but it seems he has a lot of others.", "spans":[{"start":19,"end":27,"label":"GOD"}]}
+{"text":"Horus in Ancient     Egyptian god, is one of the most significant deities related with    Egypt.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":90,"end":95,"label":"PERSON"}]}
+{"text":"Here I     thought Poseidon only had one enemy but it seems he has a lot of Titans others.", "spans":[{"start":19,"end":27,"label":"GOD"},{"start":76,"end":82,"label":"GROUP"}]}
+{"text":"Horus in Ancient Egyptian god, and I think     Shirleni would like to know more about him.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":47,"end":55,"label":"PERSON"}]}
+{"text":"Horus in Ancient Egyptian god, and I think     Shirleni would like to know more about him.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":47,"end":55,"label":"PERSON"}]}
+{"text":"The influence of the god     Thoth in Ancient Egyptian was big, Zaida thinks.", "spans":[{"start":29,"end":34,"label":"GOD"},{"start":64,"end":69,"label":"PERSON"}]}
+{"text":"Horus in Ancient     Egyptian god, is one of the most significant deities related with    Egypt.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":90,"end":95,"label":"PERSON"}]}
+{"text":"Horus in Ancient     Egyptian god, is one of the most significant deities related with    Egypt.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":90,"end":95,"label":"PERSON"}]}
+{"text":"The influence     of the Great god Thoth in Ancient Egypt was big.", "spans":[{"start":25,"end":30,"label":"PERSON"},{"start":35,"end":40,"label":"GOD"},{"start":52,"end":57,"label":"PERSON"}]}
+{"text":"The influence     of the Great god Thoth in Ancient Egypt was big.", "spans":[{"start":25,"end":30,"label":"PERSON"},{"start":35,"end":40,"label":"GOD"},{"start":52,"end":57,"label":"PERSON"}]}
+{"text":"Here I     thought Poseidon only had one enemy but it seems he has a lot of others.", "spans":[{"start":19,"end":27,"label":"GOD"}]}
+{"text":"Horus in Ancient Egyptian god, and I think     Shirleni would like to know more about him.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":47,"end":55,"label":"PERSON"}]}
+{"text":"The influence     of the Great god Thoth in Ancient Egypt was big.", "spans":[{"start":25,"end":30,"label":"PERSON"},{"start":35,"end":40,"label":"GOD"},{"start":52,"end":57,"label":"PERSON"}]}
+{"text":"Here I     thought Poseidon only had one enemy but it seems he has a lot of others.", "spans":[{"start":19,"end":27,"label":"GOD"}]}
+{"text":"Zeus seems to be a bipolar God.", "spans":[{"start":0,"end":4,"label":"GOD"}]}
+{"text":"Horus in Ancient Egyptian god, and I think     Shirleni would like to know more about him.", "spans":[{"start":0,"end":5,"label":"GOD"},{"start":47,"end":55,"label":"PERSON"}]}
+{"text":"The influence of the god     Thoth in Ancient Egyptian was big, Zaida thinks.", "spans":[{"start":29,"end":34,"label":"GOD"},{"start":64,"end":69,"label":"PERSON"}]}
+{"text":"Thousands of     Olimpics demonstrators have marched through Egypt to protest the war in Greece and demand the withdrawal of British troops from that country.", "spans":[{"start":17,"end":25,"label":"GROUP"},{"start":61,"end":66,"label":"PERSON"},{"start":89,"end":95,"label":"PLACE"}]}
+{"text":"Almost everybody likes good movies.", "spans":[]}
+{"text":"A nice god is one the doesn't believe he is better than anybody.", "spans":[]}
+{"text":"Almost everybody likes good movies.", "spans":[]}
