@@ -213,7 +213,7 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
 
     if report:
         """
-        getting_minimuns: funcion que debe redefinir las cantidades pos y neg entities, que reste por definir una vez se hayan recolectado
+        getting_minima: funcion que debe redefinir las cantidades pos y neg entities, que reste por definir una vez se hayan recolectado
         los minimos (de ser posible) de entidades en cada categoria. Para esto ultimo se recorrera la lista docs, se defniran las entidades
         positivas y negativas requeridas por el umbral y se devolvera la lista docs modificada, sin esas entidades. Asi la nueva lista de docs
         podra ser recorrida para terminar de definir el numero de muestras indicadas en "samples". La suma de entidades definidas en esta
