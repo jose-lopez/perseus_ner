@@ -207,19 +207,22 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
     entities_sample = []
 
     minimum_umbral = 3
+
+    # Diccionario que contendra los resultados de la funcion getting_minimuns
     minimums_on_process = {}
-    minimum_reachead = False
+
+    if report:
+        """
+        getting_minimuns: funcion que debe redefinir las cantidades pos y neg entities, que reste por definir una vez se hayan recolectado
+        los minimos (de ser posible) de entidades en cada categoria. Para esto ultimo se recorrera la lista docs, se defniran las entidades
+        positivas y negativas requeridas por el umbral y se devolvera la lista docs modificada, sin esas entidades. Asi la nueva lista de docs
+        podra ser recorrida para terminar de definir el numero de muestras indicadas en "samples". La suma de entidades definidas en esta
+        funcion mas las que se colecten en el lazo de mas abajo deben ser iguales a las indicadas en "samples'.
+        """
+
+        getting_minima(docs, labels, minimum_umbral, minimums_on_process)
 
     for doc in docs:
-        if report:
-            """
-            getting_minimuns: funcion debe redefinir las cantidades pos y neg entities, que reste por definir una vez se hayan alcanzado
-            los minimos en cada categoria (de ser posible). Para esto ultimo se recorrera la lista docs, se defniran las entidades
-            positivas y negativas relativas al umbral y se devolvera la lista docs modificada, sin las entidades que se detectaron en el recorrido.
-            Asi la nueva lista de docs podra ser recorrida para terminar de reportar el numero de muestras indicadas en "samples"
-            getting_minimuns(docs, minimum_umbral, minimums_on_process)
-            
-            """
 
         if doc.ents:
             if pos < pos_entities:
@@ -228,7 +231,7 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
         elif neg < neg_entities:
             entities_sample.append(doc)
             neg += 1
-    
+
             if pos + neg == samples:
                 break
 
@@ -246,8 +249,10 @@ def define_sample(docs, percentage, sentences_number, corpus_length, file_name, 
 
     return entities_sample
 
-def analyzing_minimun(doc, minimum):
-    
+
+def getting_minima(docs, labels, minimum_umbral, minimums_on_process):
+    pass
+
 
 def getting_ner_examples(files, sentences_number, corpus_length, percentage, proportion, matcher):
 
